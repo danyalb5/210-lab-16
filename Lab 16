@@ -1,0 +1,55 @@
+#include <iostream>
+
+class Color {
+private:
+    int red, green, blue;
+
+public:
+    // Default Constructor
+    Color() : red(0), green(0), blue(0) {}
+
+    // Parameterized Constructor
+    Color(int r, int g, int b) : red(r), green(g), blue(b) {}
+
+    // Partial Constructor: Takes only red, default green and blue to 0
+    Color(int r) : red(r), green(0), blue(0) {}
+
+    // Setter methods
+    void setRed(int r) { red = r; }
+    void setGreen(int g) { green = g; }
+    void setBlue(int b) { blue = b; }
+
+    // Getter methods
+    int getRed() const { return red; }
+    int getGreen() const { return green; }
+    int getBlue() const { return blue; }
+
+    // Print method to display color values
+    void print() const {
+        std::cout << "Color (R: " << red << ", G: " << green << ", B: " << blue << ")\n";
+    }
+};
+
+int main() {
+    // Using the default constructor
+    Color defaultColor;
+    std::cout << "Default Color: ";
+    defaultColor.print();
+
+    // Using the parameterized constructor
+    Color color1(255, 0, 0); // Red
+    std::cout << "Color 1 (Parameterized Constructor): ";
+    color1.print();
+
+    // Using the partial constructor (only red, green and blue default to 0)
+    Color partialColor(128); // Red only
+    std::cout << "Partial Color (Partial Constructor): ";
+    partialColor.print();
+
+    // Instantiating another Color object using the parameterized constructor
+    Color color2(0, 255, 0); // Green
+    std::cout << "Color 2: ";
+    color2.print();
+
+    return 0;
+}
